@@ -35,9 +35,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/c8e2a33d-a3c3-47f5-9e1c-9ac1a55bacbd.png" 
+              src="/lovable-uploads/791b1c95-1545-49e2-8788-44a9a31d9efc.png" 
               alt="Nexaflow" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
             <span className="text-xl font-bold text-primary-foreground">
               Nexaflow
