@@ -69,8 +69,8 @@ const ContactSection = () => {
     {
       icon: <MessageCircle className="h-6 w-6" />,
       label: "WhatsApp",
-      value: "+812 4233944",
-      href: "https://wa.me/8124233944",
+      value: "+58 422-108-6900",
+      href: "https://wa.me/584221086900",
       color: "from-green-500 to-green-600"
     }
   ];
