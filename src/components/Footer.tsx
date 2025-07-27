@@ -9,9 +9,6 @@ const Footer = () => {
               alt="Nexaflow" 
               className="h-10 w-auto"
             />
-            <span className="text-2xl font-bold text-primary">
-              Nexaflow
-            </span>
           </div>
           <p className="text-primary-foreground/80 text-sm">
             © 2025 Nexaflow. Todos los derechos reservados.

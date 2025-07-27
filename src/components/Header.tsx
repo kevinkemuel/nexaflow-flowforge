@@ -39,9 +39,6 @@ const Header = () => {
               alt="Nexaflow" 
               className="h-10 w-auto"
             />
-            <span className="text-xl font-bold text-primary-foreground">
-              Nexaflow
-            </span>
           </div>
 
           {/* Desktop Navigation */}
