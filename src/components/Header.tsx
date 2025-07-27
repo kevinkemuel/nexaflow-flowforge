@@ -35,7 +35,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/791b1c95-1545-49e2-8788-44a9a31d9efc.png" 
+              src="/lovable-uploads/3704052f-9feb-423e-8366-f6f8fd5c9744.png" 
               alt="Nexaflow" 
               className="h-10 w-auto"
             />
