@@ -2,7 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/nexaflow/public_html/
-    - /usr/bin/npm install
-    - /usr/bin/npm run build
+    - /usr/bin/bun install
+    - /usr/bin/bun run build
     - /bin/rm -rf $DEPLOYPATH/*
     - /bin/cp -R dist/* $DEPLOYPATH
