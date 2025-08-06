@@ -5,4 +5,4 @@ deployment:
     - /usr/bin/npm install
     - /usr/bin/npm run build
     - /bin/rm -rf $DEPLOYPATH/*
-    - /bin/cp -R public/* $DEPLOYPATH
+    - /bin/cp -R dist/* $DEPLOYPATH
