@@ -1,11 +1,10 @@
 ---
 deployment:
   tasks:
-    - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate
-    - echo "Iniciando instalación..."
-    - npm install
-    - echo "Compilando con Vite..."
-    - npm run build
-    - echo "Desplegando en public_html..."
-    - rm -rf ~/public_html/*
-    - cp -r dist/* ~/public_html/
+    - echo "Despliegue iniciado: $(date)" >> ~/deploy.log
+    - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate >> ~/deploy.log 2>&1
+    - npm install >> ~/deploy.log 2>&1
+    - npm run build >> ~/deploy.log 2>&1
+    - rm -rf ~/public_html/* >> ~/deploy.log 2>&1
+    - cp -r dist/* ~/public_html/ >> ~/deploy.log 2>&1
+    - echo "Despliegue finalizado: $(date)" >> ~/deploy.log
