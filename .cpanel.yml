@@ -1,7 +1,11 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/nexaflow/public_html/
-    - /home2/nexaflow/nodevenv/repositories/nexaflow/20/bin/npm install
-    - /home2/nexaflow/nodevenv/repositories/nexaflow/20/bin/npm run build
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate
+    - echo "Iniciando instalación..."
+    - npm install
+    - echo "Compilando con Vite..."
+    - npm run build
+    - echo "Desplegando en public_html..."
+    - rm -rf ~/public_html/*
+    - cp -r dist/* ~/public_html/
