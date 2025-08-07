@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Instagram, Mail, MessageCircle, Send } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
@@ -36,19 +37,42 @@ const ContactSection = () => {
       return;
     }
 
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "¡Mensaje enviado con éxito!",
-      description: "Te contactaremos pronto.",
-    });
+    try {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message
+          }
+        ]);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "¡Mensaje enviado con éxito!",
+        description: "Te contactaremos pronto.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo.",
+        variant: "destructive",
+      });
+    }
   };
 
   const contactMethods = [
