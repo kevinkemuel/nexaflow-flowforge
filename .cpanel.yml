@@ -3,6 +3,7 @@ deployment:
   tasks:
     - echo "Despliegue iniciado: $(date)" >> ~/deploy.log
     - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate >> ~/deploy.log 2>&1
+    - cd /home2/nexaflow/nexaflow >> ~/deploy.log 2>&1
     - npm install >> ~/deploy.log 2>&1
     - npm run build >> ~/deploy.log 2>&1
     - rm -rf ~/public_html/* >> ~/deploy.log 2>&1
