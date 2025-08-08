@@ -1,11 +1,10 @@
 ---
 deployment:
   tasks:
-    - echo "Despliegue iniciado: $(date)" >> /home2/nexaflow/deploy.log
-    - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate >> /home2/nexaflow/deploy.log 2>&1
-    - cd /home2/nexaflow/nexaflow >> /home2/nexaflow/deploy.log 2>&1
-    - npm install >> /home2/nexaflow/deploy.log 2>&1
-    - npm run build >> /home2/nexaflow/deploy.log 2>&1
-    - rm -rf /home2/nexaflow/public_html/* >> /home2/nexaflow/deploy.log 2>&1
-    - cp -r dist/* /home2/nexaflow/public_html/ >> /home2/nexaflow/deploy.log 2>&1
-    - echo "Despliegue finalizado: $(date)" >> /home2/nexaflow/deploy.log
+    - export NODE_ENV=production
+    - source /home2/nexaflow/nodevenv/nexaflow/20/bin/activate
+    - cd /home2/nexaflow/nexaflow
+    - npm install
+    - npx vite build
+    - rm -rf /home2/nexaflow/public_html/*
+    - cp -r dist/* /home2/nexaflow/public_html/
